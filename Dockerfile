@@ -1,10 +1,12 @@
-FROM openjdk:20-slim
+# Sử dụng Eclipse Temurin JDK 20
+FROM eclipse-temurin:20-jdk-slim
 
+# Thiết lập thư mục làm việc
 WORKDIR /app
+
+# Sao chép mã nguồn của bạn
 COPY . /app
 
-RUN ./mvnw clean install
-
-EXPOSE 8081
-
-CMD ["java", "-jar", "target/your‑app.jar"]
+# Biên dịch và chạy ứng dụng
+RUN javac Main.java
+CMD ["java", "Main"]
